@@ -4,6 +4,14 @@
 
 It is currently in its early stages of development, and can export most information from 1Password.
 
+## Current limitations
+
+There is some data with the CLI cannot currently obtain that is left out from the export. I will be adding a full list here.
+
+Additionally, document exporting is not yet added. This will be added soon.
+
+All account data is fetched when an account is ran, then filtered down and exported. I plan to make it only fetch partials, then fetch the remaining data during the export. This is another easy feature that will be added soon.
+
 ## How to use
 
 NOTE: installation will eventually be done with a `cargo install`.
@@ -16,9 +24,9 @@ Additionally, you want to make sure you have the (1Password CLI)[https://develop
 
 Assuming you set up everything correctly, you will see a loading screen. This means the exporter is retrieving your data for export.
 
-After loading, you will see a screen that looks similar to this:
+After loading, you will be taken to the interactive menu where you can filter account information you want excluded from the export.
 
-![Initial view](./screenshots/initial-page.png?raw=true)
+Navigate through this menu using the controls, type out the export path, then hit enter to write the export data JSON to your disk.
 
 ## 1PUX format
 

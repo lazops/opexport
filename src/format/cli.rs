@@ -3,13 +3,13 @@ use serde::{Deserialize, Serialize};
 use crate::op::{run, OPError};
 
 // helper struct used for fields that only contain an ID
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct OnlyID {
     pub id: String,
 }
 
 // op document get <id>
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct Document {
     pub id: String,
     pub title: String,
@@ -23,7 +23,7 @@ pub struct Document {
 }
 
 // op account list
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct ListedAccount {
     pub url: String,
     pub email: String,
@@ -36,7 +36,7 @@ pub fn get_listed_accounts() -> Result<Vec<ListedAccount>, OPError> {
 }
 
 // op account get <id>
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct Account {
     pub id: String,
     pub name: String,
@@ -52,7 +52,7 @@ pub fn get_account(id: &str) -> Result<Account, OPError> {
 }
 
 // op vault list
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct ListedVault {
     pub id: String,
     pub name: String,
@@ -63,7 +63,7 @@ pub fn get_listed_vaults() -> Result<Vec<ListedVault>, OPError> {
 }
 
 // op vault get <id>
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct Vault {
     #[serde(flatten)]
     pub listed_vault: ListedVault,
@@ -81,7 +81,7 @@ pub fn get_vault(id: &str) -> Result<Vault, OPError> {
 }
 
 // op item list
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct ListedItem {
     pub id: String,
     pub title: String,
@@ -99,7 +99,7 @@ pub fn get_listed_items() -> Result<Vec<ListedItem>, OPError> {
 }
 
 // op item get <id>
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct Item {
     #[serde(flatten)]
     pub listed_item: ListedItem,
@@ -112,7 +112,7 @@ pub fn get_item(id: &str) -> Result<Item, OPError> {
     run::<Item>(&["item", "get", id])
 }
 
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct Field {
     pub id: String,
     #[serde(rename = "type")]
@@ -124,14 +124,14 @@ pub struct Field {
     pub password_details: Option<PasswordDetails>,
 }
 
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct PasswordDetails {
     pub entropy: Option<usize>,
     pub generated: Option<bool>,
     pub strength: String,
 }
 
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, Default)]
 pub struct URL {
     pub primary: bool,
     pub href: String,

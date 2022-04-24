@@ -1,4 +1,4 @@
-use std::{char::MAX, thread, time::Duration};
+use std::{thread, time::Duration};
 
 use rustea::{
     command::{batch, quit},

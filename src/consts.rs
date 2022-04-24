@@ -10,5 +10,3 @@ Left / Right: Navigate through path      |
 Space: Toggle export data entry          |
 -----------------------------------------*
 "#;
-
-pub const MAX_VIEWABLE_ENTRIES: usize = 5;

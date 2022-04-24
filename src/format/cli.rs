@@ -128,7 +128,7 @@ pub struct Field {
 pub struct PasswordDetails {
     pub entropy: Option<usize>,
     pub generated: Option<bool>,
-    pub strength: String,
+    pub strength: Option<String>,
 }
 
 #[derive(Deserialize, Serialize, Clone, Default)]

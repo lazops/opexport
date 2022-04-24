@@ -103,8 +103,8 @@ pub fn get_listed_items() -> Result<Vec<ListedItem>, OPError> {
 pub struct Item {
     #[serde(flatten)]
     pub listed_item: ListedItem,
-    pub sections: Vec<OnlyID>,
-    pub fields: Vec<Field>,
+    pub sections: Option<Vec<OnlyID>>,
+    pub fields: Option<Vec<Field>>,
     pub urls: Option<Vec<URL>>,
 }
 

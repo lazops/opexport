@@ -99,6 +99,7 @@ impl UXExporter {
             details: ItemDetails {
                 login_fields: item
                     .fields
+                    .unwrap_or_default()
                     .iter()
                     .map(|field| LoginField {
                         value: field.value.to_owned(),

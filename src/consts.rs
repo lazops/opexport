@@ -10,3 +10,4 @@ Left / Right: Navigate through path      |
 Space: Toggle export data entry          |
 -----------------------------------------*
 "#;
+pub const LINES_PER_SECTION: usize = 10;

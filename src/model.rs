@@ -236,28 +236,30 @@ impl App for Model {
                 viewable_entries_len
             ));
 
-            out.push_str(
-                &self
-                    .viewable_entries
-                    .iter()
-                    .enumerate()
-                    .map(|(i, entry)| match entry {
-                        ExportDataEntry::Account(account) => self.export_data_entry_view_line(
-                            format!("(Account) {}", account.attrs.name),
-                            i,
-                        ),
-                        ExportDataEntry::Vault(vault) => self.export_data_entry_view_line(
-                            format!("  (Vault) {}", vault.attrs.name),
-                            i,
-                        ),
-                        ExportDataEntry::Item(item) => self.export_data_entry_view_line(
-                            format!("    ({}) {}", item.category_uuid, item.overview.title),
-                            i,
-                        ),
-                    })
-                    .collect::<Vec<String>>()
-                    .join(""),
-            );
+            let viewable_lines = &self
+                .viewable_entries
+                .iter()
+                .enumerate()
+                .map(|(i, entry)| match entry {
+                    ExportDataEntry::Account(account) => self.export_data_entry_view_line(
+                        format!("(Account) {}", account.attrs.name),
+                        i,
+                    ),
+                    ExportDataEntry::Vault(vault) => self
+                        .export_data_entry_view_line(format!("  (Vault) {}", vault.attrs.name), i),
+                    ExportDataEntry::Item(item) => self.export_data_entry_view_line(
+                        format!("    ({}) {}", item.category_uuid, item.overview.title),
+                        i,
+                    ),
+                })
+                .collect::<Vec<String>>();
+
+            let mut sections = viewable_lines.chunks(LINES_PER_SECTION);
+            let chunk = sections
+                .nth(self.current_selection / LINES_PER_SECTION)
+                .unwrap();
+
+            out.push_str(&chunk.join(""));
 
             out.push_str(&format!(
                 "{}{}\n{}^",

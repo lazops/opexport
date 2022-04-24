@@ -84,14 +84,14 @@ impl UXExporter {
             category_uuid: listed_item.category.to_owned(),
             overview: Overview {
                 title: listed_item.title.to_owned(),
-                url: match urls.iter().find(|url| url.primary) {
-                    Some(url) => Some(url.href.to_owned()),
+                url: match urls.iter().find(|url| url.primary.unwrap_or_default()) {
+                    Some(url) => Some(url.href.clone().unwrap_or("".to_owned()).to_owned()),
                     None => None,
                 },
                 urls: urls
                     .iter()
                     .map(|url| URL {
-                        url: url.href.to_owned(),
+                        url: url.href.clone().unwrap_or("".to_owned()).to_owned(),
                     })
                     .collect(),
                 tags: listed_item.tags.as_ref().unwrap_or(&Vec::new()).to_owned(),

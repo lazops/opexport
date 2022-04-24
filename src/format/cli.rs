@@ -133,6 +133,6 @@ pub struct PasswordDetails {
 
 #[derive(Deserialize, Serialize, Clone, Default)]
 pub struct URL {
-    pub primary: bool,
-    pub href: String,
+    pub primary: Option<bool>,
+    pub href: Option<String>,
 }

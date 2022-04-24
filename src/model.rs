@@ -183,8 +183,8 @@ impl App for Model {
 
             self.loading_indicator_count = 0;
         } else if msg.is::<OPError>() {
-            let error = msg.downcast().unwrap();
-            self.error = *error;
+            let error = msg.downcast::<OPError>().unwrap();
+            self.error = Some(*error);
 
             self.loading_indicator_count = 0;
         } else if msg.is::<BumpLoadingIndicatorMessage>() {

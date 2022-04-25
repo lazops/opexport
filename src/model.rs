@@ -66,7 +66,7 @@ impl Model {
     }
 
     pub fn cache_export_data(&mut self, export_data: ExportData) {
-        self.flattened_export_data = Some(export_data.flat());
+        self.flattened_export_data = Some(export_data.flatten());
         self.export_data = Some(export_data);
     }
 

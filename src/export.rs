@@ -70,7 +70,7 @@ impl ExportOptions {
     fn filter_export_data(&self, export_data: ExportData) -> ExportData {
         unflatten(
             export_data
-                .flat()
+                .flatten()
                 .into_iter()
                 .filter(|entry| match entry {
                     ExportDataEntry::Account(account) => {

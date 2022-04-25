@@ -155,7 +155,7 @@ impl ExportData {
         serde_json::to_string(self)
     }
 
-    pub fn flat(&self) -> Vec<ExportDataEntry> {
+    pub fn flatten(&self) -> Vec<ExportDataEntry> {
         let mut entries = Vec::new();
 
         for acc in &self.accounts {

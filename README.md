@@ -16,7 +16,7 @@ All account data is fetched when an account is ran, then filtered down and expor
 
 NOTE: installation will eventually be done with a `cargo install`.
 
-Using the export tool is extremely easy. Assuming you have (Rust)[https://rust-lang.org] installed, clone this repository and `cd` into it.
+Using the export tool is extremely easy. Assuming you have [Rust](https://rust-lang.org) installed, clone this repository and `cd` into it.
 
 Run: `cargo run`.
 

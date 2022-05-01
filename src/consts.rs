@@ -11,3 +11,4 @@ Space: Toggle export data entry          |
 -----------------------------------------*
 "#;
 pub const LINES_PER_SECTION: usize = 10;
+pub const INVALID_ARGUMENTS_MESSAGE: &str = "Invalid number of arguments. Provide no arguments for interactive menu, or 1 argument for direct exporting to json.";

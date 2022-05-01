@@ -18,9 +18,11 @@ NOTE: installation will eventually be done with a `cargo install`.
 
 Using the export tool is extremely easy. Assuming you have [Rust](https://rust-lang.org) installed, clone this repository and `cd` into it.
 
-Run: `cargo run`.
+Run: `cargo run <optional path>`.
 
-Additionally, you want to make sure you have the (1Password CLI)[https://developer.1password.com/docs/cli/] installed. Sign in to it. The exporter does not currently support authentication aside from biometrics, so you will have to do this manually for now. This is likely to change in the future.
+If a path is provided, an entire export will be created and written to the path specified automatically. This is useful for exporting in an automated fashion. You would likely want to format your automated export like such: `<authenticate into op> && opexport <path> && <command to encrypt the file>`.
+
+Additionally, you want to make sure you have the [1Password CLI](https://developer.1password.com/docs/cli/) installed. Sign in to it. The exporter does not currently support authentication aside from biometrics, so you will have to do this manually for now. This is likely to change in the future.
 
 Assuming you set up everything correctly, you will see a loading screen. This means the exporter is retrieving your data for export.
 
@@ -30,4 +32,4 @@ Navigate through this menu using the controls, type out the export path, then hi
 
 ## 1PUX format
 
-Exports are made as a (1PUX)[https://support.1password.com/1pux-format/] data file. Document downloading support will be added soon.
+Exports are made as a [1PUX](https://support.1password.com/1pux-format/) data file. Document downloading support will be added soon.
